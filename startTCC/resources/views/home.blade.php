@@ -29,7 +29,7 @@
                         <p class="card-text">- Cria um cronograma automaticamente;<br>
                             - Aborda os conteúdos mais presentes nos vestibulares;<br>
                             - Numero de semanas flexivel;<br>
-                            - Baseado na matéria com maior dificuldade.</p>
+                            - Baseado na aréa de maior dificuldade.</p>
 
                     </div>
 
@@ -47,6 +47,7 @@
                 </div>
             </div>
         </div>
+    </div>
         @endsection
 
         <script src="{{ asset('site/jquery.js') }}"></script>

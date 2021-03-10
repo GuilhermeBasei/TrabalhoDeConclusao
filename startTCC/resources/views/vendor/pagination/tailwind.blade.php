@@ -55,8 +55,6 @@
                 @endif
 
             @endforeach
-            @endif
-
             @if ($paginator->hasMorePages())
                 <li class="page-item"><a class="page-link" href="{{ $paginator->nextPageUrl() }}">Próxima</a></li>
             @else
@@ -64,6 +62,19 @@
                     <a class="page-link" href="#" tabindex="-1">Próxima</a>
                 </li>
             @endif
+
+            @else
+             <span class="h3 mt-3 page-item disabled">Semana:
+  <span
+      class=" relative inline-flex items-center px-2  -ml-px text-sm text-white font-medium text-gray-700 bg-secondary  cursor-default ">1</span>
+
+             </span>
+
+
+            @endif
+
+
+
 
 
         </ul>

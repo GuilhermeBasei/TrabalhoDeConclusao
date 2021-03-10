@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="imagem/png" href="https://cdn.discordapp.com/attachments/592511224479088655/804053347258335313/teste4.png" />
+    <link rel="icon" type="imagem/png" href="https://media.discordapp.net/attachments/592511224479088655/817140294285918219/imagem_linta.png?width=789&height=676" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -25,7 +25,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
         <div class="container">
-            <a class="navbar-brand text-white" href="{{ url('/home') }}"> <img  src="https://cdn.discordapp.com/attachments/592511224479088655/817140294285918219/imagem_linta.png" width="30" height="30" class="d-inline-block align-top border-secondary" alt="">
+            <a class="navbar-brand text-white" href="{{ url('/home') }}"> <img  src="https://media.discordapp.net/attachments/592511224479088655/817140294285918219/imagem_linta.png?width=789&height=676" width="30" height="30" class="d-inline-block align-top border-secondary" alt="">
                 {{ __('Vestibulei') }}
             </a>
 
@@ -99,12 +99,15 @@
 
         <div class="list-group list-group-flush">
 
-            <a href="{{ route('cronogramas.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Cronogramas</a>
-            <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-light">Criar novo Cronograma</a>
-            <div class="sidebar-heading bg-success text-light">Dicas de estudo </div>
-            <a href="{{route('perfil.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Perfil</a>
-            <a href="{{route('biblioteca.index')}}" class="list-group-item list-group-item-action bg-light">Biblioteca de Estudos</a>
 
+            <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-light">Criar novo Cronograma</a>
+            <a href="{{ route('cronogramas.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Cronogramas</a>
+            <a href="{{route('biblioteca.index')}}" class="list-group-item list-group-item-action bg-light">Biblioteca de Estudos</a>
+            <div class="sidebar-heading bg-success text-light">Auxílio ao Usuário</div>
+            <a href="{{route('perfil.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Perfil</a>
+            <a href="{{route('site.ajuda')}}" class="list-group-item list-group-item-action bg-light border-bottom">Ajuda</a>
+            <a href="{{route('site.problema')}}" class="list-group-item list-group-item-action bg-light border-bottom">Relatar Problema</a>
+            <div class="sidebar-heading bg-success text-light">Dados do site</div>
             <a href="{{route('site.sobre')}}" class="list-group-item list-group-item-action bg-light border-bottom">Sobre</a>
         </div>
 

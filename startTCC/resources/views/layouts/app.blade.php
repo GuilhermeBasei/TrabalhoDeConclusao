@@ -26,7 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm">
             <div class="container">
-                <a class="navbar-brand text-white" href="{{ url('/') }}"> <img src="https://cdn.discordapp.com/attachments/592511224479088655/804053347258335313/teste4.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                <a class="navbar-brand text-white" href="{{ url('/') }}"> <img src="https://media.discordapp.net/attachments/592511224479088655/817140294285918219/imagem_linta.png?width=789&height=676" width="30" height="30" class="d-inline-block align-top" alt="">
                     {{ __('Vestibulei') }}
                 </a>
 
