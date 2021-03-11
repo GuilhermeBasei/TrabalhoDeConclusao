@@ -67,6 +67,15 @@
                         </select>
                     </div>
                 </div>
+            <div class="form-row" style="display:none">
+                <div class="form-group col-md-2">
+                    <label for="quantConteudos">Quantidade de conteúdos:</label>
+                    <select id="quantConteudos" class="form-control" name="fim">
+                        <option>1</option>
+                    </select>
+                </div>
+            </div>
+
 
 
 

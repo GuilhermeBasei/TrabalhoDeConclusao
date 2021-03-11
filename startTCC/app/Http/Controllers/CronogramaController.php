@@ -45,8 +45,10 @@ class CronogramaController extends Controller
             'nome' => $request->nome,
             'area' => $request->area,
             'tipo' => $request->tipo,
+            'fim' => $request->fim,
             'quantSemanas' => $request->quantSemanas,
             'quantConteudos' => $request->quantConteudos,
+
         ];
 
         $num = $request->quantSemanas;
@@ -55,6 +57,7 @@ class CronogramaController extends Controller
 
         \DB::transaction(function () use ($cronograma, $num, $area, $num2) {
             $cronogramaObj = Auth::user()->cronogramas()->create($cronograma);
+
             $i3=0;
             for ($i2 = 0; $i2 < $num2; $i2++) {
                 for ($i = 0; $i < $num; $i++) {
@@ -122,11 +125,20 @@ class CronogramaController extends Controller
     {
         $semanas = $cronograma->semanas()->paginate($cronograma->quantConteudos);
         $jj = $cronograma->id;
+        $ff = $cronograma->fim;
         foreach ($semanas as $semana){
             $semana->array = (explode("/",$semana->conteudos));
         }
         $tt= $cronograma->created_at->format('d - M');
-        return view('editCronograma',compact('semanas','tt','jj'));
+        if($ff==1){
+            return view('editCronograma',compact('semanas','tt','jj'));
+        }
+        else{
+            return view('manualCreate',compact('semanas','tt','jj'));
+
+
+        }
+
     }
 
     /**

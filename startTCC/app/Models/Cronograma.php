@@ -14,7 +14,8 @@ class Cronograma extends Model
         'area',
         'quantSemanas',
         'quantConteudos',
-        'tipo'
+        'tipo',
+        'fim'
     ];
     public function setNomeAttribute($value)
     {

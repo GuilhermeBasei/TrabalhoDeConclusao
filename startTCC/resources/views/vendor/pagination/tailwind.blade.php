@@ -2,8 +2,6 @@
     <nav role="navigation " aria-label="{{ __('Pagination Navigation') }}" class="flex items-center justify-between">
 
 
-
-
         <ul class="pagination text-center ml-2 mt-4">
             {{-- Pagination Elements --}}
 

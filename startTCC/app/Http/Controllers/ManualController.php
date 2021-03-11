@@ -43,6 +43,7 @@ class ManualController extends Controller
             'tipo' => 'Cronograma Manual',
             'quantSemanas' => $request->quantSemanas,
             'quantConteudos' => $request->quantConteudos,
+            'fim' => 0,
         ];
 
         $num = $request->quantSemanas;
@@ -105,9 +106,14 @@ class ManualController extends Controller
      * @param  \App\Models\Cronograma  $cronograma
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cronograma $cronograma)
+    public function update(Request $request, $cronograma)
     {
-        //
+        $cronograma = Cronograma::find($cronograma);
+        $cronograma->fim = 1;
+
+        $cronograma->save();
+        return redirect()->route('cronogramas.show',$cronograma);
+
     }
 
     /**

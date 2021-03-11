@@ -106,7 +106,7 @@
             <div class="sidebar-heading bg-success text-light">Auxílio ao Usuário</div>
             <a href="{{route('perfil.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Perfil</a>
             <a href="{{route('site.ajuda')}}" class="list-group-item list-group-item-action bg-light border-bottom">Ajuda</a>
-            <a href="{{route('site.problema')}}" class="list-group-item list-group-item-action bg-light border-bottom">Relatar Problema</a>
+            <a href="{{route('relatarProblema.index')}}" class="list-group-item list-group-item-action bg-light border-bottom">Relatar Problema</a>
             <div class="sidebar-heading bg-success text-light">Dados do site</div>
             <a href="{{route('site.sobre')}}" class="list-group-item list-group-item-action bg-light border-bottom">Sobre</a>
         </div>

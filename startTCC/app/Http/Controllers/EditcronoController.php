@@ -76,9 +76,6 @@ class EditcronoController extends Controller
         $semana->materias='Materia';
         $semana->save();
 
-
-
-
         return back()
             ->with('msg', 'Adicionado com sucesso');
     }

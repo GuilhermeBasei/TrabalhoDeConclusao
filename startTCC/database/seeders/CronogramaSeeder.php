@@ -14,9 +14,9 @@ class CronogramaSeeder extends Seeder
     public function run()
     {
         $cronogramas = array(
-            array('user_id' => '1', 'nome' => 'cronograma 1', 'area' =>'Exatas', 'tipo' => 'Cronograma Automático', 'quantSemanas' => '2', 'quantConteudos' => '2'),
-            array('user_id' => '1', 'nome' => 'cronograma 2', 'area' =>'Humanas', 'tipo' => 'Cronograma Automático', 'quantSemanas' => '2', 'quantConteudos' => '2'),
-            array('user_id' => '1', 'nome' => 'cronograma 3', 'area' =>'Biológicas', 'tipo' => 'Cronograma Automático', 'quantSemanas' => '2', 'quantConteudos' => '2'),);
+            array('user_id' => '1', 'nome' => 'cronograma 1', 'area' =>'Exatas', 'tipo' => 'Cronograma Automático', 'quantSemanas' => '2', 'quantConteudos' => '2', 'fim' => '1'),
+            array('user_id' => '1', 'nome' => 'cronograma 2', 'area' =>'Humanas', 'tipo' => 'Cronograma Automático', 'quantSemanas' => '2', 'quantConteudos' => '2', 'fim' => '1'),
+            array('user_id' => '1', 'nome' => 'cronograma 3', 'area' =>'Biológicas', 'tipo' => 'Cronograma Automático', 'quantSemanas' => '2', 'quantConteudos' => '2', 'fim' => '1'),);
         foreach ($cronogramas as $cronograma) {
             \App\Models\Cronograma::create($cronograma);
         }

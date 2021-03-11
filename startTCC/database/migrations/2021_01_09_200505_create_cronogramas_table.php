@@ -19,6 +19,7 @@ class CreateCronogramasTable extends Migration
             $table->string('nome');
             $table->string('area');
             $table->string('tipo');
+            $table->integer('fim');
             $table->integer('quantSemanas');
             $table->integer('quantConteudos');
             $table->timestamps();

@@ -34,7 +34,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('altsenha','AltsenhaController');
     Route::resource('manual','ManualController');
     Route::resource('editcrono','EditcronoController');
-
+    Route::resource('relatarProblema','ProblemaController');
     Route::get('/auto', function () {
         return view('auto');
     })->name('site.auto');
@@ -56,9 +56,7 @@ Route::middleware(['auth'])->group(function(){
         return view('ajuda');
     })->name('site.ajuda');
 
-    Route::get('/relatarProblema', function () {
-        return view('problema');
-    })->name('site.problema');
+
 
 
 
