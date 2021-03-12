@@ -16,13 +16,7 @@
 
 
         <div class="container-fluid">
-            @if (\Session::has('success'))
-                <div class="alert alert-success">
-                    <ul>
-                        <li>{!! \Session::get('success') !!}</li>
-                    </ul>
-                </div>
-            @endif
+
 
 
         <!--<form action="{{route('editcrono.update',$jj)}}" method="post" class="allforms">
@@ -42,7 +36,7 @@
                         <br>
                         <div class="input-group input-group-lg">
                             <div class="input-group-prepend">
-                                <span class="input-group-text " id="inputGroup-sizing-lg">Conteudo:</span>
+                                <span class="input-group-text " id="inputGroup-sizing-lg">Conteúdo:</span>
                             </div>
                             <input name="conteudos" type="text" class="form-control col-lg-5" aria-label="Large"
                                    aria-describedby="inputGroup-sizing-sm" value="{{$array}}">

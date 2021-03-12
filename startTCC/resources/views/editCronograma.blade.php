@@ -39,7 +39,7 @@
                         <br>
                         <div class="input-group input-group-lg">
                             <div class="input-group-prepend">
-                                <span class="input-group-text " id="inputGroup-sizing-lg">Conteudo:</span>
+                                <span class="input-group-text " id="inputGroup-sizing-lg">Conteúdo:</span>
                             </div>
                             <input name="conteudos" type="text" class="form-control col-lg-5" aria-label="Large"
                                    aria-describedby="inputGroup-sizing-sm" value="{{$array}}">

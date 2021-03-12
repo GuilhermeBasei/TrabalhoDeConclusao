@@ -10,7 +10,7 @@
         <nav class="navbar navbar-light bg-success text-white mt-4">
             {{$semanas->links()}}
 
-            <span class="float-right navbar-brand  h1 text-white">{{$tt}}</span>
+            <span class="float-right navbar-brand  h1 text-white">Criado em: {{$tt}}</span>
 
         </nav>
         <hr>
