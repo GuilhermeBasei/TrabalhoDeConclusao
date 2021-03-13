@@ -40,49 +40,66 @@ class CronogramaController extends Controller
      */
     public function store(Request $request)
     {
+        $nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
+        $area = filter_var($_REQUEST['area'], FILTER_SANITIZE_STRING);
+        $quantSemanas = filter_var($_REQUEST['quantSemanas'], FILTER_SANITIZE_NUMBER_INT);
+        $quantConteudos = filter_var($_REQUEST['quantConteudos'],FILTER_SANITIZE_NUMBER_INT);
 
        $cronograma = [
-            'nome' => $request->nome,
-            'area' => $request->area,
+            'nome' => $nome,
+            'area' => $area,
             'tipo' => $request->tipo,
             'fim' => $request->fim,
-            'quantSemanas' => $request->quantSemanas,
-            'quantConteudos' => $request->quantConteudos,
+            'quantSemanas' => $quantSemanas,
+            'quantConteudos' => $quantConteudos,
 
         ];
 
-        $num = $request->quantSemanas;
-        $num2 = $request->quantConteudos;
-        $area = $request->area;
 
-        \DB::transaction(function () use ($cronograma, $num, $area, $num2) {
+
+        \DB::transaction(function () use ($cronograma, $quantSemanas, $area, $quantConteudos) {
             $cronogramaObj = Auth::user()->cronogramas()->create($cronograma);
 
             $i3=0;
-            for ($i2 = 0; $i2 < $num2; $i2++) {
-                for ($i = 0; $i < $num; $i++) {
+            for ($i2 = 0; $i2 < $quantConteudos; $i2++) {
+                for ($i = 0; $i < $quantSemanas; $i++) {
                     if ($area == 'Exatas') {
                         $conteudo = Conteudo::findOrFail(1);
                         $conteudos = $conteudo->conteudosExatas;
                         $conteudos = (explode("/", $conteudos));
                         $conteudos = $conteudos[$i3];
-                        $materias = 'Matematica';
+                        $materias = $conteudo->materiaExatas;
+                        $materias = (explode("/", $materias));
+                        $materias = $materias[$i3];
                         $i3++;
                     }   elseif ($area == 'Humanas') {
                         $conteudo = Conteudo::findOrFail(1);
                         $conteudos = $conteudo->conteudosHumanas;
                         $conteudos = (explode("/", $conteudos));
                         $conteudos = $conteudos[$i3];
-                        $materias = 'Geografia';
+                        $materias = $conteudo->materiaHumanas;
+                        $materias = (explode("/", $materias));
+                        $materias = $materias[$i3];
                         $i3++;
                     }   elseif ($area == 'Biológicas') {
                         $conteudo = Conteudo::findOrFail(1);
                         $conteudos = $conteudo->conteudosBiologicas;
                         $conteudos = (explode("/", $conteudos));
                         $conteudos = $conteudos[$i3];
-                        $materias = 'Biologia';
+                        $materias = $conteudo->materiaBiologicas;
+                        $materias = (explode("/", $materias));
+                        $materias = $materias[$i3];
                         $i3++;
-                    }
+                    } elseif ($area == 'Todas as áreas') {
+                $conteudo = Conteudo::findOrFail(1);
+                $conteudos = $conteudo->conteudosTodas;
+                $conteudos = (explode("/", $conteudos));
+                $conteudos = $conteudos[$i3];
+                $materias = $conteudo->materiaTodas;
+                $materias = (explode("/", $materias));
+                $materias = $materias[$i3];
+                $i3++;
+            }
                     $data = date('d');
 
                     $semana = [

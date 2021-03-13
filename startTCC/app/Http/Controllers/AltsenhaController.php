@@ -71,20 +71,26 @@ class AltsenhaController extends Controller
      */
     public function update(Request $request)
     {
-        if($request->senha1 == $request->senha2 && strlen($request->senha1)>=8 ){
-            if(password_verify($request->oldsenha,Auth::user()->password)){
+        $senha1 = filter_var($_REQUEST['senha1'], FILTER_SANITIZE_STRING);
+        $senha2 = filter_var($_REQUEST['senha2'], FILTER_SANITIZE_STRING);
+        $oldsenha = filter_var($_REQUEST['oldsenha'], FILTER_SANITIZE_STRING);
+
+
+
+        if($senha1 == $senha2 && strlen($request->senha1)>=8 ){
+            if(password_verify($oldsenha,Auth::user()->password)){
                 $User = User::find(Auth::user()->id);
-                $User->password = Hash::make($request->senha1);
+                $User->password = Hash::make($senha1);
                 $User->save();
                 return redirect()->route('altsenha.index')->with('mensagem', 'Editado com sucesso!');
             }
             else{
-                return redirect()->route('altsenha.index')->with('mensagemerro', 'Senha incorreta!');
+                return redirect()->route('altsenha.index')->with('mensagemerro', 'Senha antiga incorreta!');
             }
 
         }
         else{
-            return redirect()->route('altsenha.index')->with('mensagemerro', 'Senha Não coincidem!');
+            return redirect()->route('altsenha.index')->with('mensagemerro', 'Senhas novas não coincidem ou não contém 8 caracteres');
         }
 
 

@@ -77,9 +77,13 @@ class SemanasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $conteudos = filter_var($_REQUEST['conteudos'], FILTER_SANITIZE_STRING);
+        $materias = filter_var($_REQUEST['materias'], FILTER_SANITIZE_STRING);
+
+
         $semanas = Semana::find($id);
-        $semanas->conteudos = $request->conteudos;
-        $semanas->materias = $request->materias;
+        $semanas->conteudos = $conteudos;
+        $semanas->materias = $materias;
         $semanas->save();
         return redirect()->back()->with('success', 'Editado com sucesso');
     }

@@ -18,7 +18,11 @@ class CreateConteudosTable extends Migration
             $table->text('conteudosExatas');
             $table->text('conteudosHumanas');
             $table->text('conteudosBiologicas');
-
+            $table->text('conteudosTodas');
+            $table->text('materiaExatas');
+            $table->text('materiaHumanas');
+            $table->text('materiaBiologicas');
+            $table->text('materiaTodas');
             $table->timestamps();
         });
     }

@@ -37,24 +37,24 @@ class ManualController extends Controller
      */
     public function store(Request $request)
     {
+        $nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
+        $quantSemanas = filter_var($_REQUEST['quantSemanas'], FILTER_SANITIZE_NUMBER_INT);
+        $quantConteudos = filter_var($_REQUEST['quantConteudos'],FILTER_SANITIZE_NUMBER_INT);
+
         $cronograma = [
-            'nome' => $request->nome,
+            'nome' => $nome,
             'area' => 'Criação do Usuário',
             'tipo' => 'Cronograma Manual',
-            'quantSemanas' => $request->quantSemanas,
-            'quantConteudos' => $request->quantConteudos,
+            'quantSemanas' => $quantSemanas,
+            'quantConteudos' => $quantConteudos,
             'fim' => 0,
         ];
 
-        $num = $request->quantSemanas;
-        $num2 = $request->quantConteudos;
-        $area = $request->area;
-
-        \DB::transaction(function () use ($cronograma, $num, $area, $num2) {
+        \DB::transaction(function () use ($cronograma, $quantSemanas, $quantConteudos) {
             $cronogramaObj = Auth::user()->cronogramas()->create($cronograma);
             $i3=0;
-            for ($i2 = 0; $i2 < $num2; $i2++) {
-                for ($i = 0; $i < $num; $i++) {
+            for ($i2 = 0; $i2 < $quantConteudos; $i2++) {
+                for ($i = 0; $i < $quantSemanas; $i++) {
 
                     $conteudos = 'Conteudo';
                     $materias = 'Matéria';

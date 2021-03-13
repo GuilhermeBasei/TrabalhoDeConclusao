@@ -38,7 +38,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text " id="inputGroup-sizing-lg">Conteúdo:</span>
                             </div>
-                            <input name="conteudos" type="text" class="form-control col-lg-5" aria-label="Large"
+                            <input name="conteudos" type="text" required class="form-control col-lg-5" aria-label="Large"
                                    aria-describedby="inputGroup-sizing-sm" value="{{$array}}">
                         </div>
                         <br>
@@ -46,7 +46,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Matéria:</span>
                             </div>
-                            <input name="materias" type="text" class="form-control col-lg-2" aria-label="Default"
+                            <input name="materias" type="text" required class="form-control col-lg-2" aria-label="Default"
                                    aria-describedby="inputGroup-sizing-default" value="{{$semana->materias}}">
                         </div>
                         <hr class=mt-4>

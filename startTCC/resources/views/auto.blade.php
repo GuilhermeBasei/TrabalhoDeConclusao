@@ -22,6 +22,7 @@
                         <option>Humanas</option>
                         <option>Exatas</option>
                         <option>Biológicas</option>
+                        <option>Todas as áreas</option>
                     </select>
                 </div>
             </div>
@@ -39,6 +40,8 @@
                         <option>8</option>
                         <option>9</option>
                         <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
                     </select>
                 </div>
             </div>
@@ -53,9 +56,6 @@
                         <option>5</option>
                         <option>6</option>
                         <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
                     </select>
                 </div>
             </div>

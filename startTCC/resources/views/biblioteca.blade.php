@@ -15,10 +15,10 @@
             <div class="col-sm mt-4">
                 <ul class="list-group">
                     <li class="list-group-item active bg-success border-success" aria-current="true">Humanas</li>
-                    <a href="" class="list-group-item list-group-item-action">História</a>
-                    <a href="" class="list-group-item list-group-item-action">Geografia</a>
-                    <a href="" class="list-group-item list-group-item-action">Sociologia</a>
-                    <a href="" class="list-group-item list-group-item-action">Filosofia</a>
+                    <a href="{{ route('biblioteca.show',[4])}}" class="list-group-item list-group-item-action">História</a>
+                    <a href="{{ route('biblioteca.show',[5])}}" class="list-group-item list-group-item-action">Geografia</a>
+                    <a href="{{ route('biblioteca.show',[6])}}" class="list-group-item list-group-item-action">Sociologia</a>
+                    <a href="{{ route('biblioteca.show',[7])}}" class="list-group-item list-group-item-action">Filosofia</a>
                     <a href="{{ route('biblioteca.show',[3])}}" class="list-group-item list-group-item-action">Língua Portuguesa</a>
 
                 </ul>
@@ -26,7 +26,7 @@
             <div class="col-sm mt-4">
                 <ul class="list-group">
                     <li class="list-group-item active bg-success border-success" aria-current="true">Exatas</li>
-                    <a href="{{ route('biblioteca.show',[1])}}" class="list-group-item list-group-item-action">Matematica</a>
+                    <a href="{{ route('biblioteca.show',[1])}}" class="list-group-item list-group-item-action">Matemática</a>
                     <a href="{{ route('biblioteca.show',[2])}}" class="list-group-item list-group-item-action">Física</a>
 
                 </ul>
@@ -34,9 +34,9 @@
             <div class="col-sm mt-4">
                 <ul class="list-group">
                     <li  class="list-group-item active bg-success border-success" aria-current="true">Biológicas</li>
-                    <a href="" class="list-group-item list-group-item-action">Química</a>
+                    <a href="{{ route('biblioteca.show',[8])}}" class="list-group-item list-group-item-action">Química</a>
 
-                    <a href="" class="list-group-item list-group-item-action">Biologia</a>
+                    <a href="{{ route('biblioteca.show',[9])}}" class="list-group-item list-group-item-action">Biologia</a>
                 </ul>
 
             </div>

@@ -36,6 +36,8 @@ class ProblemaController extends Controller
      */
     public function store(Request $request)
     {
+        $assunto = filter_var($_REQUEST['assunto'], FILTER_SANITIZE_STRING);
+        $texto = filter_var($_REQUEST['texto'], FILTER_SANITIZE_STRING);
 
 
         $request->validate([
@@ -45,7 +47,7 @@ class ProblemaController extends Controller
             'email' =>'required'
         ]);
 
-        $data = array('nome' => $request->nome, 'email'=>$request->email, 'assunto'=>$request->assunto, 'texto'=>$request->texto);
+        $data = array('nome' => $request->nome, 'email'=>$request->email, 'assunto'=>$assunto, 'texto'=>$texto);
         $template_path = 'problemaContato';
 
             Mail::send($template_path, $data, function ($message) {

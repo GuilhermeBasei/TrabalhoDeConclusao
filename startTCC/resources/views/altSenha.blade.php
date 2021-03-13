@@ -25,7 +25,7 @@
                 <div class="form-group row mt-4 ">
                     <label for="staticEmail" class="col-sm-2 col-form-label">Senha Antiga:</label>
                     <div class="col-sm-4">
-                        <input type="password" name="oldsenha" class="form-control">
+                        <input type="password" name="oldsenha"  required class="form-control">
                     </div>
 
                 </div>
@@ -34,14 +34,14 @@
                     <div class="form-group row">
                         <label  class="col-sm-2 col-form-label">Nova Senha:</label>
                         <div class="col-sm-4">
-                        <input type="password" name="senha1" class="form-control"  >
+                        <input type="password" name="senha1" required class="form-control"  >
                     </div>
                     </div>
 
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Repita a Nova Senha:</label>
                     <div class="col-sm-4">
-                        <input type="password" name="senha2" class="form-control" id="inputPassword">
+                        <input type="password" name="senha2" required class="form-control" id="inputPassword">
                     </div>
 
                 </div>

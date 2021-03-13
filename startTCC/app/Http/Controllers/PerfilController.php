@@ -71,10 +71,15 @@ class PerfilController extends Controller
      */
     public function update(Request $request)
     {
-       if(password_verify($request->senha,Auth::user()->password)){
+
+        $senha = filter_var($_REQUEST['senha'], FILTER_SANITIZE_STRING);
+        $nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
+        $email = filter_var($_REQUEST['email'], FILTER_SANITIZE_EMAIL);
+
+       if(password_verify($senha,Auth::user()->password)){
             $User = User::find(Auth::user()->id);
-            $User->name=$request->nome;
-            $User->email=$request->email;
+            $User->name=$nome;
+            $User->email=$email;
             //$User->password = Hash::make($request->senha);
             $User->save();
            return redirect()->route('perfil.index')->with('mensagem', 'Editado com sucesso!');

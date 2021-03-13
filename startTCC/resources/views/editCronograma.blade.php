@@ -22,12 +22,12 @@
             @endif
 
 
-            <!--<form action="{{route('editcrono.update',$jj)}}" method="post" class="allforms">
+        <!--<form action="{{route('editcrono.update',$jj)}}" method="post" class="allforms">
                     @csrf
-                    @method('PUT')
+            @method('PUT')
 
-                    <button type="submit" class="btn btn-success mt-4">Adicionar Conteudos</button>
-                </form>-->
+            <button type="submit" class="btn btn-success mt-4">Adicionar Conteudos</button>
+        </form>-->
 
             @foreach($semanas as $semana)
 
@@ -41,7 +41,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text " id="inputGroup-sizing-lg">Conteúdo:</span>
                             </div>
-                            <input name="conteudos" type="text" class="form-control col-lg-5" aria-label="Large"
+                            <input name="conteudos" type="text" required class="form-control col-lg-5"
+                                   aria-label="Large"
                                    aria-describedby="inputGroup-sizing-sm" value="{{$array}}">
                         </div>
                         <br>
@@ -49,7 +50,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-default">Matéria:</span>
                             </div>
-                            <input name="materias" type="text" class="form-control col-lg-2" aria-label="Default"
+                            <input name="materias" type="text" required class="form-control col-lg-2"
+                                   aria-label="Default"
                                    aria-describedby="inputGroup-sizing-default" value="{{$semana->materias}}">
                         </div>
                         <hr class=mt-4>
@@ -110,7 +112,8 @@
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -123,13 +126,14 @@
                         Você será redirecionado para o cronograma. Caso não tenha salvo suas alterações serão perdidas!
                     </div>
                     <div class="modal-footer">
-                        <a class="btn btn-secondary ml-2" href="{{route('cronogramas.show',$jj)}}">Continuar sem salvar</a>
-                        <a  href="{{route('cronogramas.show',$jj)}}" id="allsubmit2" class="btn btn-success">Salvar e continuar</a>
+                        <a class="btn btn-secondary ml-2" href="{{route('cronogramas.show',$jj)}}">Continuar sem
+                            salvar</a>
+                        <a href="{{route('cronogramas.show',$jj)}}" id="allsubmit2" class="btn btn-success">Salvar e
+                            continuar</a>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
     </div>

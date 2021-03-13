@@ -36,13 +36,13 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Assunto:</label>
-                    <input type="text" name="assunto" class="form-control col-md-3" id="exampleFormControlInput1">
+                    <input type="text" name="assunto" required class="form-control col-md-3" id="exampleFormControlInput1">
                 </div>
 
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Informe aqui sua reclamação / sugestão:</label>
-                    <textarea name="texto" class="form-control col-md-6" id="exampleFormControlTextarea1" rows="5" placeholder="Informe aqui o que deseja contatar!"></textarea>
+                    <textarea name="texto" class="form-control col-md-6" required id="exampleFormControlTextarea1" rows="5" placeholder="Informe aqui o que deseja contatar!"></textarea>
                 </div>
                 <button  type="submit" class="btn btn-success">Enviar</button>
             </form>
