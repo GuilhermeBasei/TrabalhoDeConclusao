@@ -18,7 +18,7 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label for="quantSemanas">Quantidade de senamas:</label>
+                    <label for="quantSemanas">Quantidade de semanas:</label>
                     <select name="quantSemanas" class="form-control">
                         <option>1</option>
                         <option>2</option>

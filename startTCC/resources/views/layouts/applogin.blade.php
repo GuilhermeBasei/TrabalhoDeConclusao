@@ -102,7 +102,7 @@
 
             <a href="{{ route('home') }}" class="list-group-item list-group-item-action bg-light">Criar novo Cronograma</a>
             <a href="{{ route('cronogramas.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Cronogramas</a>
-            <a href="{{route('biblioteca.index')}}" class="list-group-item list-group-item-action bg-light">Biblioteca de Estudos</a>
+            <a href="{{route('biblioteca.index')}}" class="list-group-item list-group-item-action bg-light">Biblíoteca de Estudos</a>
             <div class="sidebar-heading bg-success text-light">Auxílio ao Usuário</div>
             <a href="{{route('perfil.index')}}" class="list-group-item list-group-item-action bg-light">Acessar Perfil</a>
             <a href="{{route('site.ajuda')}}" class="list-group-item list-group-item-action bg-light border-bottom">Ajuda</a>
@@ -116,13 +116,14 @@
             <main>
                 @yield('content')
             </main>
+            <!-- Footer -->
 
-        </div>
+
 
     </div>
 
 
-
+</div>
 
 
 

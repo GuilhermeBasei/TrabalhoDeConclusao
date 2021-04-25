@@ -28,8 +28,8 @@
 
                         <p class="card-text">- Cria um cronograma automaticamente;<br>
                             - Aborda os conteúdos mais presentes nos vestibulares;<br>
-                            - Numero de semanas flexivel;<br>
-                            - Baseado na aréa de maior dificuldade.</p>
+                            - Número de semanas flexivel;<br>
+                            - Baseado na área de maior dificuldade.</p>
 
                     </div>
 
@@ -41,7 +41,7 @@
                     <div class="card-body">
 
                         <p class="card-text">- Possibilita ao usuário criar um cronograma flexivel;<br>
-                            - Numero de semanas flexivel;
+                            - Número de semanas flexivel;
                         </p>
                     </div>
                 </div>

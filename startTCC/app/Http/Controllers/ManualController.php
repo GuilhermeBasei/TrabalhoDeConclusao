@@ -56,7 +56,7 @@ class ManualController extends Controller
             for ($i2 = 0; $i2 < $quantConteudos; $i2++) {
                 for ($i = 0; $i < $quantSemanas; $i++) {
 
-                    $conteudos = 'Conteudo';
+                    $conteudos = 'Conteúdo';
                     $materias = 'Matéria';
                     $i3++;
 

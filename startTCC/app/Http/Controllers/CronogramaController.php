@@ -45,74 +45,83 @@ class CronogramaController extends Controller
         $quantSemanas = filter_var($_REQUEST['quantSemanas'], FILTER_SANITIZE_NUMBER_INT);
         $quantConteudos = filter_var($_REQUEST['quantConteudos'],FILTER_SANITIZE_NUMBER_INT);
 
-       $cronograma = [
-            'nome' => $nome,
-            'area' => $area,
-            'tipo' => $request->tipo,
-            'fim' => $request->fim,
-            'quantSemanas' => $quantSemanas,
-            'quantConteudos' => $quantConteudos,
+        if($quantConteudos<=7 && $quantSemanas<=12){
 
-        ];
+            $cronograma = [
+                'nome' => $nome,
+                'area' => $area,
+                'tipo' => $request->tipo,
+                'fim' => $request->fim,
+                'quantSemanas' => $quantSemanas,
+                'quantConteudos' => $quantConteudos,
+
+            ];
 
 
 
-        \DB::transaction(function () use ($cronograma, $quantSemanas, $area, $quantConteudos) {
-            $cronogramaObj = Auth::user()->cronogramas()->create($cronograma);
+            \DB::transaction(function () use ($cronograma, $quantSemanas, $area, $quantConteudos) {
+                $cronogramaObj = Auth::user()->cronogramas()->create($cronograma);
 
-            $i3=0;
-            for ($i2 = 0; $i2 < $quantConteudos; $i2++) {
-                for ($i = 0; $i < $quantSemanas; $i++) {
-                    if ($area == 'Exatas') {
-                        $conteudo = Conteudo::findOrFail(1);
-                        $conteudos = $conteudo->conteudosExatas;
-                        $conteudos = (explode("/", $conteudos));
-                        $conteudos = $conteudos[$i3];
-                        $materias = $conteudo->materiaExatas;
-                        $materias = (explode("/", $materias));
-                        $materias = $materias[$i3];
-                        $i3++;
-                    }   elseif ($area == 'Humanas') {
-                        $conteudo = Conteudo::findOrFail(1);
-                        $conteudos = $conteudo->conteudosHumanas;
-                        $conteudos = (explode("/", $conteudos));
-                        $conteudos = $conteudos[$i3];
-                        $materias = $conteudo->materiaHumanas;
-                        $materias = (explode("/", $materias));
-                        $materias = $materias[$i3];
-                        $i3++;
-                    }   elseif ($area == 'Biológicas') {
-                        $conteudo = Conteudo::findOrFail(1);
-                        $conteudos = $conteudo->conteudosBiologicas;
-                        $conteudos = (explode("/", $conteudos));
-                        $conteudos = $conteudos[$i3];
-                        $materias = $conteudo->materiaBiologicas;
-                        $materias = (explode("/", $materias));
-                        $materias = $materias[$i3];
-                        $i3++;
-                    } elseif ($area == 'Todas as áreas') {
-                $conteudo = Conteudo::findOrFail(1);
-                $conteudos = $conteudo->conteudosTodas;
-                $conteudos = (explode("/", $conteudos));
-                $conteudos = $conteudos[$i3];
-                $materias = $conteudo->materiaTodas;
-                $materias = (explode("/", $materias));
-                $materias = $materias[$i3];
-                $i3++;
-            }
-                    $data = date('d');
+                $i3=0;
+                for ($i2 = 0; $i2 < $quantConteudos; $i2++) {
+                    for ($i = 0; $i < $quantSemanas; $i++) {
+                        if ($area == 'Exatas') {
+                            $conteudo = Conteudo::findOrFail(1);
+                            $conteudos = $conteudo->conteudosExatas;
+                            $conteudos = (explode("/", $conteudos));
+                            $conteudos = $conteudos[$i3];
+                            $materias = $conteudo->materiaExatas;
+                            $materias = (explode("/", $materias));
+                            $materias = $materias[$i3];
+                            $i3++;
+                        }   elseif ($area == 'Humanas') {
+                            $conteudo = Conteudo::findOrFail(1);
+                            $conteudos = $conteudo->conteudosHumanas;
+                            $conteudos = (explode("/", $conteudos));
+                            $conteudos = $conteudos[$i3];
+                            $materias = $conteudo->materiaHumanas;
+                            $materias = (explode("/", $materias));
+                            $materias = $materias[$i3];
+                            $i3++;
+                        }   elseif ($area == 'Biológicas') {
+                            $conteudo = Conteudo::findOrFail(1);
+                            $conteudos = $conteudo->conteudosBiologicas;
+                            $conteudos = (explode("/", $conteudos));
+                            $conteudos = $conteudos[$i3];
+                            $materias = $conteudo->materiaBiologicas;
+                            $materias = (explode("/", $materias));
+                            $materias = $materias[$i3];
+                            $i3++;
+                        } elseif ($area == 'Todas as áreas') {
+                            $conteudo = Conteudo::findOrFail(1);
+                            $conteudos = $conteudo->conteudosTodas;
+                            $conteudos = (explode("/", $conteudos));
+                            $conteudos = $conteudos[$i3];
+                            $materias = $conteudo->materiaTodas;
+                            $materias = (explode("/", $materias));
+                            $materias = $materias[$i3];
+                            $i3++;
+                        }
+                        $data = date('d');
 
-                    $semana = [
+                        $semana = [
 
-                        'conteudos' => $conteudos,
-                        'materias' => $materias,
-                    ];
-                    $cronogramaObj->semanas()->create($semana)->save();
+                            'conteudos' => $conteudos,
+                            'materias' => $materias,
+                        ];
+                        $cronogramaObj->semanas()->create($semana)->save();
+                    }
                 }
-            }
-        });
+            });
+            return \redirect()->route('cronogramas.index')->with('mensagem', 'Criado com sucesso!');
+        }
+        else{
+            return \redirect()->route('cronogramas.index')->with('mensagem', 'Erro ao criar! Confira os dados informados e tente novamente!');
+        }
 
-        return \redirect()->route('cronogramas.index')->with('mensagem', 'Criado com sucesso!');
+
+
+
     }
 
     /**
@@ -123,14 +132,19 @@ class CronogramaController extends Controller
      */
     public function show(Cronograma $cronograma)
     {
-        $semanas = $cronograma->semanas()->paginate($cronograma->quantConteudos);
-
-        foreach ($semanas as $semana){
-            $semana->array = (explode("/",$semana->conteudos));
+        $semanas = $cronograma->semanas()->orderBy('id')->paginate($cronograma->quantConteudos);
+        if ($cronograma->user_id == Auth::user()->id) {
+            foreach ($semanas as $semana) {
+                $semana->array = (explode("/", $semana->conteudos));
+            }
+            $tt = $cronograma->created_at->format('d - M');
+            return view('semanas', compact('semanas', 'tt'));
         }
-        $tt= $cronograma->created_at->format('d - M');
-        return view('semanas',compact('semanas','tt'));
+        else{
+            return redirect()->back();
+        }
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -140,7 +154,10 @@ class CronogramaController extends Controller
      */
     public function edit(Cronograma $cronograma)
     {
-        $semanas = $cronograma->semanas()->paginate($cronograma->quantConteudos);
+        $semanas = $cronograma->semanas()->orderBy('id')->paginate($cronograma->quantConteudos);
+        if($cronograma->user_id == Auth::user()->id){
+
+
         $jj = $cronograma->id;
         $ff = $cronograma->fim;
         foreach ($semanas as $semana){
@@ -154,6 +171,10 @@ class CronogramaController extends Controller
             return view('manualCreate',compact('semanas','tt','jj'));
 
 
+        }
+        }
+        else{
+            return redirect()->back();
         }
 
     }

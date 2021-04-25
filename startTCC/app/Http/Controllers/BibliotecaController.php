@@ -47,7 +47,7 @@ class BibliotecaController extends Controller
      */
     public function show(Biblioteca $biblioteca)
     {
-        return view('monoconteudo',['bibliotecas'=>$biblioteca]);
+        return view('monoConteudo',['bibliotecas'=>$biblioteca]);
     }
 
     /**

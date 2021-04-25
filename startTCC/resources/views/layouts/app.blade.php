@@ -57,7 +57,7 @@
                                 </li>
                             @endif
                         @else
-                            <img src="https://cdn.discordapp.com/attachments/592511224479088655/795697992950087770/618d7252-5e12-43a4-be85-836364bb635f.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                            <img src="https://cdn.discordapp.com/attachments/592511224479088655/804054162668781598/aluna.png" width="30" height="30" class="d-inline-block align-top" alt="">
                             <li class="nav-item dropdown ">
                                 <a id="navbarDropdowntext-white" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -92,12 +92,12 @@
 
      <main class="py-1">
         @yield('content')
+
+
     </main>
 
 
-    <footer class="container">
 
-    </footer>
 
     </div>
 </body>
